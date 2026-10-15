@@ -1,0 +1,7 @@
+POST  https://kataleya-app-server.godigital145.workers.dev/login
+Content-Type: application/json
+
+{
+    "email":"ngomsome@yahoo.fr",
+    "password" : "admin1234"
+}

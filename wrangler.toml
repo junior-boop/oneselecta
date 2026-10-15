@@ -1,0 +1,24 @@
+name = "oneselecta-server"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "oneselecta"
+database_id = "2b74c290-4e6f-4456-a903-13ca7b989092"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "oneselecta-images"
+
+[[durable_objects.bindings]]
+name = "SYNC_ROOM"
+class_name = "SyncRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SyncRoom"]
+
+[vars]
+JWT_ISSUER = "oneselecta"
