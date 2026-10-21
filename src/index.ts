@@ -8,6 +8,7 @@ import syncRoutes from "./routes/sync";
 import imagesRoutes from "./routes/images";
 import publicRoutes from "./routes/public";
 import updateRoutes from "./routes/update";
+import setupRoutes from "./routes/setup";
 import { SyncRoom } from "./sync-room";
 
 const app = new Hono<{ Bindings: Env; Variables: Variables }>();
@@ -172,6 +173,9 @@ app.route("/", publicRoutes);
 app.route("/", updateRoutes);
 
 app.route("/", authRoutes);
+// Page HTML de création/modification de l'admin principal — protégée par
+// SETUP_SECRET (pas de JWT requis, doit rester utilisable sans admin existant).
+app.route("/", setupRoutes);
 // imagesRoutes AVANT syncRoutes : sync définit un PUT/:table/:id générique qui
 // matcherait /images/:name et renverrait 404 (table inconnue). Ordre = priorité.
 app.route("/", imagesRoutes);

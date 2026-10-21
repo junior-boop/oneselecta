@@ -6,6 +6,7 @@ export type Env = {
     IMAGES: R2Bucket;
     JWT_SECRET: string;
     JWT_ISSUER: string;
+    SETUP_SECRET: string;
     SYNC_ROOM: DurableObjectNamespace<SyncRoom>;
 };
 
